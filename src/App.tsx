@@ -108,7 +108,7 @@ import Home from "./pages/home/Home.tsx";
 function TODO() {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/app");
+    navigate("/app/home");
   });
   return <>{"Redirect"}</>;
 }
@@ -119,7 +119,7 @@ const router = createBrowserRouter([
     path: "/app/*",
     element: <AppLayout />,
     children: [
-      { path: "", element: <Home /> },
+      { path: "home", element: <Home /> },
       { path: "calculator", element: <Calculator /> },
       { path: "shop", element: <Shop /> },
       { path: "history", element: <History /> },
