@@ -9,6 +9,8 @@ import Calculator from "./pages/Calculator.tsx";
 import History from "./pages/History.tsx";
 import Shop from "./pages/Shopping.tsx";
 import Wallet from "./pages/Wallet.tsx";
+// import Home from "./pages/home/HomeOld.tsx";
+import { TestAppWrite } from "./pages/TestAppWrite.tsx";
 import Home from "./pages/home/Home.tsx";
 
 // export default function App() {
@@ -115,6 +117,7 @@ function TODO() {
 
 const router = createBrowserRouter([
   { path: "*", element: <TODO /> },
+  { path: "test/", element: <TestAppWrite /> },
   {
     path: "/app/*",
     element: <AppLayout />,
