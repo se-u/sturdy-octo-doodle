@@ -5,6 +5,7 @@ import { RecoilRoot } from "recoil";
 import App from "./App";
 import WalletProvider from "./hooks/WalletProvider";
 import "./index.css";
+import { PoinProvider, } from "./lib/context/poins";
 
 // this manifest is used temporarily for development purposes
 const manifestUrl =
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <TonConnectUIProvider manifestUrl={manifestUrl}>
     <WalletProvider>
       <RecoilRoot>
-        <App />
+        <PoinProvider>
+          <App />
+        </PoinProvider>
       </RecoilRoot>
     </WalletProvider>
   </TonConnectUIProvider>
