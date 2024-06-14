@@ -8,7 +8,6 @@ const Calculator = () => {
   const [totalBottles, setTotalBottles] = useState(0);
   const [totalUtility, setTotalUtility] = useState(0);
   const [totalCurrency, setTotalCurrency] = useState(0);
-
   const handleCalculate = () => {
     setCarbonEmissions(10);
     setTotalBottles(11);
