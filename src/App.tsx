@@ -8,6 +8,7 @@ import AppLayout from "./layouts/MobileLayout.tsx";
 import Calculator from "./pages/Calculator.tsx";
 import History from "./pages/History.tsx";
 import Shop from "./pages/Shopping.tsx";
+import Transaction from "./pages/transaction/transaction.tsx";
 import Wallet from "./pages/Wallet.tsx";
 // import Home from "./pages/home/HomeOld.tsx";
 import { TestAppWrite } from "./pages/TestAppWrite.tsx";
@@ -126,6 +127,7 @@ const router = createBrowserRouter([
       { path: "calculator", element: <Calculator /> },
       { path: "shop", element: <Shop /> },
       { path: "history", element: <History /> },
+      { path: "transaction", element: <Transaction/> },
       {
         path: "wallet/",
         element: <Wallet />,
