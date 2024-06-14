@@ -4,7 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        green: '#5AC958',
+        lightgreen: '#BDE9BC',
+        secondary: '#EBEBF0',
         border: '#1C4B1D',
+        lightgray: "#6C6C70",
         primary: {
           50: "#f2fbf2",
           100: "#e1f8e0",
