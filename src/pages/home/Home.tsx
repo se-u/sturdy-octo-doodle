@@ -6,14 +6,22 @@ export default function Home() {
       {/* Statistic Start */}
       <div className="bg-green-200 border-2 border-black p-4 mb-4 rounded-xl flex justify-between">
         <div className="">
-          
           <h2 className="text-sm font-bold text-black ">Klora Point</h2>
-          <p className="text-gray-700 text-sm"><span className="text-lg font-bold">100</span> Point</p>
+          <p className="text-gray-700 text-sm">
+            <span className="text-lg font-bold">100</span> Point
+          </p>
           <h2 className="text-sm font-bold text-black mt-2">Total Botol</h2>
-          <p className="text-gray-700 text-sm"><span className="text-lg font-bold">20</span> Botol</p>
+          <p className="text-gray-700 text-sm">
+            <span className="text-lg font-bold">20</span> Botol
+          </p>
         </div>
         <div className="">
-          <img src="/bags/1.png" className="rounded-xl shadow-md" alt="Tas" width={125} />
+          <img
+            src="/bags/1.png"
+            className="rounded-xl shadow-md"
+            alt="Tas"
+            width={125}
+          />
         </div>
       </div>
       {/* Statistic End */}
@@ -52,8 +60,10 @@ export default function Home() {
       {/* Riwayat Transaksi Start */}
       <div className="bg-green-200 border-2 border-black p-4 mb-4 rounded-xl">
         <Link to="/app/transaction" className="flex justify-between">
-          <h2 className="text-sm font-bold text-black" >Riwayat Transaksi</h2>
-          <button className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-yellow-300">Lihat semua 👉</button>
+          <h2 className="text-sm font-bold text-black">Riwayat Transaksi</h2>
+          <button className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-yellow-300">
+            Lihat semua 👉
+          </button>
         </Link>
         {/* Data Transaction */}
         <div className="flex border-b-2 py-3 border-black justify-between mt-6">
@@ -83,10 +93,15 @@ export default function Home() {
       <div className="bg-green-200 border-2  border-black p-4 mb-4 rounded-xl">
         <div className="flex justify-between">
           <h2 className="text-sm font-bold text-black">Undang Teman Kamu ✨</h2>
-          <button className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-yellow-300">Undang 👉</button>
+          <button className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-yellow-300">
+            Undang 👉
+          </button>
         </div>
         <div className="mt-4">
-            <p className="text-gray-600 text-xs">Pakai Klora lebih seru kalau ada teman buat share info terbaru. Ayo ajak mereka download !. </p>
+          <p className="text-gray-600 text-xs">
+            Pakai Klora lebih seru kalau ada teman buat share info terbaru. Ayo
+            ajak mereka download !.{" "}
+          </p>
         </div>
       </div>
       {/* Invite End*/}
