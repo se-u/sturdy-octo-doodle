@@ -13,6 +13,8 @@ import Wallet from "./pages/Wallet.tsx";
 // import Home from "./pages/home/HomeOld.tsx";
 import { TestAppWrite } from "./pages/TestAppWrite.tsx";
 import Home from "./pages/home/Home.tsx";
+import Converting from "./pages/convert/converting.tsx";
+import SwapPoint from "./pages/convert/SwapPoint.tsx";
 
 // export default function App() {
 //   const router = createBrowserRouter([
@@ -128,6 +130,8 @@ const router = createBrowserRouter([
       { path: "shop", element: <Shop /> },
       { path: "history", element: <History /> },
       { path: "transaction", element: <Transaction/> },
+      { path: "convert", element: <Converting/> },
+      { path: "swapPoint", element: <SwapPoint/> },
       {
         path: "wallet/",
         element: <Wallet />,
