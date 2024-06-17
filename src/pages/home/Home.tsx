@@ -27,12 +27,12 @@ export default function Home() {
             </div>
             <span className="text-xs font-semibold  mt-2">Klora Coin</span>
           </div>
-          <div className="flex flex-col items-center">
+          <Link to="/app/convert" className="flex flex-col items-center">
             <div className=" border-black bg-secondary rounded-xl p-2">
               <img src={GopayIcon} alt="tes" className="" />
             </div>
             <span className="text-xs font-semibold mt-2 ">GoPay</span>
-          </div>
+          </Link>
           <div className="flex flex-col items-center">
             <div className=" border-black bg-secondary rounded-xl p-2">
               <img src={OvoIcon} alt="tes" className="h-12 w-12" />
@@ -51,10 +51,10 @@ export default function Home() {
 
       {/* Riwayat Transaksi Start */}
       <div className="bg-green-200 border-2 border-black p-4 mb-4 rounded-3xl">
-        <Link to="/app/transaction" className="flex justify-between">
+        <div  className="flex justify-between">
           <h2 className="text-medium font-bold text-black" >Riwayat Transaksi</h2>
-          <button className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-green text-white">Lihat semua</button>
-        </Link>
+          <Link to="/app/transaction" className="py-1 px-3 border-2 items-center border-black rounded-full text-xs font-bold bg-green text-white">Lihat semua</Link>
+        </div>
         {/* Data Transaction */}
        <div className="mt-5 py-2">
 
@@ -67,7 +67,7 @@ export default function Home() {
         </div>
 
         <div className="flex border-black justify-between  items-center pb-2 ">
-          <div className="flex flex-row gap-2  items-center">
+          <div  className="flex flex-row gap-2  items-center cursor-pointer">
             <img src={BlueReceiveIcon} alt="tes" className="h-10" />
             <span className="font-medium text-lg">Dana</span>
           </div>
