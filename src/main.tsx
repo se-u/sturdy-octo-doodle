@@ -1,26 +1,22 @@
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import WebApp from "@twa-dev/sdk";
 import ReactDOM from "react-dom/client";
-import { RecoilRoot } from "recoil";
 import App from "./App";
-import PoinProvider from "./context/poinContext";
-import WalletProvider from "./hooks/WalletProvider";
-import "./index.css";
 
-// this manifest is used temporarily for development purposes
-const manifestUrl =
-  "https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json";
+import "./index.css";
+import AuthProvider from "./context/authContext";
 
 WebApp.ready();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <TonConnectUIProvider manifestUrl={manifestUrl}>
-    <WalletProvider>
-      <RecoilRoot>
-        <PoinProvider>
-          <App />
-        </PoinProvider>
-      </RecoilRoot>
-    </WalletProvider>
-  </TonConnectUIProvider>
+  // <TonConnectUIProvider manifestUrl={manifestUrl}>
+  //   <WalletProvider>
+  //     <RecoilRoot>
+  //       <PoinProvider>
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+  //       </PoinProvider>
+  //     </RecoilRoot>
+  //   </WalletProvider>
+  // </TonConnectUIProvider>
 );
