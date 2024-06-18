@@ -1,29 +1,9 @@
-import { account } from "@lib/appwrite";
 import { KloraIcon } from "@modules/Image";
 import { path } from "@modules/constant";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function TopAppBar() {
-  const [name, setName] = useState<string>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+export default function TopAppBar({ name }: { name: string }) {
   const navigate = useNavigate();
-  console.log(isLoading);
-  useEffect(() => {
-    const get = async () => {
-      try {
-        setIsLoading(true);
-        const user = await account.get();
-        setName(user.name);
-      } catch (error) {
-        console.log("");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    get();
-  }, [name]);
-
   return (
     <>
       <div className="flex justify-between px-3 py-4  items-center">

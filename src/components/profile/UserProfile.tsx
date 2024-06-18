@@ -2,33 +2,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { account } from "../../lib/appwrite";
 import { path } from "../../modules/constant";
 import { ArrowCircleLeft } from "iconsax-react";
-import { useEffect, useState } from "react";
-import { Models } from "appwrite";
+import { Suspense } from "react";
 import { AuthService } from "@modules/authService";
+import wrapPromise from "@modules/wrapPromise";
+
+function fetchDetail() {
+  const promise = account.get().then((res) => res);
+  return wrapPromise(promise);
+}
+
+const resource = fetchDetail();
 
 function UserProfile() {
-  const [user, setUser] = useState<Models.User<Models.Preferences>>();
+  const user = resource.read();
   const navigate = useNavigate();
-  useEffect(() => {
-    const get = async () => {
-      try {
-        const user = await account.get();
-        setUser(user);
-      } catch (error) {
-        console.log("");
-      }
-    };
-    get();
-  });
-
   const handleLogout = async () => {
     await account.deleteSession("current");
     AuthService.clearToken();
     navigate(path.LOGIN);
   };
-  if (!user) return null;
   return (
-    <>
+    <Suspense fallback={<h1>Loading</h1>}>
       <div className="flex justify-between items-center mb-4">
         <Link to={path.HOME}>
           <ArrowCircleLeft
@@ -74,7 +68,7 @@ function UserProfile() {
       >
         Log Out
       </button>
-    </>
+    </Suspense>
   );
 }
 
