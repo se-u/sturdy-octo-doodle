@@ -27,6 +27,7 @@ function wrapPromise<T>(promise: Promise<T>): WrappedPromise<T> {
     error: () => {
       // throw response;
       return response;
+
     },
   };
 

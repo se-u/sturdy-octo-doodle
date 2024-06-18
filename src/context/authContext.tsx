@@ -27,6 +27,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         throw e;
       }
       throw e;
+
     } finally {
       // setIsLoading(false);
       // console.log("done");

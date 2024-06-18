@@ -41,6 +41,7 @@ export default function VerifyCode({
       startTransition(() => {
         navigate(path.SETUP);
       });
+
     } catch (error) {
       console.error(error);
     } finally {
