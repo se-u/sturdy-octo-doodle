@@ -59,7 +59,11 @@ function Login() {
 
   if (userId) {
     return (
-      <VerifyCode userId={userId} phoneNumber={selectedCountry + phoneNumber} />
+      <VerifyCode
+        userId={userId}
+        reset={setUserId}
+        phoneNumber={selectedCountry + phoneNumber}
+      />
     );
   }
 

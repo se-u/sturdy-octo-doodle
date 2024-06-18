@@ -15,8 +15,13 @@ import { ButtonLogin } from "./ButtonLogin";
 interface IVerifyCodeProps {
   phoneNumber: string;
   userId: string;
+  reset: Dispatch<SetStateAction<string | null | undefined>>;
 }
-export default function VerifyCode({ phoneNumber, userId }: IVerifyCodeProps) {
+export default function VerifyCode({
+  phoneNumber,
+  userId,
+  reset,
+}: IVerifyCodeProps) {
   const navigate = useNavigate();
   const { verifyCode } = useAuth();
   const [secret, setSecret] = useState<string[]>(["", "", "", "", "", ""]);
@@ -47,13 +52,12 @@ export default function VerifyCode({ phoneNumber, userId }: IVerifyCodeProps) {
         <span className="text-base text-gray-600">
           We've sent an SMS with an activation code to your phone
           <span>
-            <span className="underline">{phoneNumber}</span>
+            <span className="underline"> {phoneNumber}</span>
             <span
-              onClick={() => navigate(path.LOGIN)}
+              onClick={() => reset(null)}
               className="cursor-pointer text-sm text-lime-600"
             >
-              {" "}
-              change number
+              {" change number"}
             </span>
           </span>
         </span>
