@@ -6,6 +6,7 @@ import {
   ChangeEvent,
   useState,
   useEffect,
+  startTransition,
 } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../@types";
@@ -37,7 +38,10 @@ export default function VerifyCode({
       if (res === "invalid-token") {
         setError("Your code is invalid, please check your message");
       }
-      navigate(path.SETUP);
+      startTransition(() => {
+        navigate(path.SETUP);
+      });
+
     } catch (error) {
       console.error(error);
     } finally {

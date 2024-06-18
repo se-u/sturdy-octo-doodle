@@ -7,6 +7,9 @@ import AuthProvider from "./context/authContext";
 import { Suspense } from "react";
 import Loader from "@components/shared/Loader";
 
+import ErrorBoundary from "@modules/ErrorBoundary";
+
+
 WebApp.ready();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -14,11 +17,16 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   //   <WalletProvider>
   //     <RecoilRoot>
   //       <PoinProvider>
-  <AuthProvider>
-    <Suspense fallback={<Loader />}>
-      <App />
-    </Suspense>
-  </AuthProvider>
+
+
+  <ErrorBoundary>
+    <AuthProvider>
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
+    </AuthProvider>
+  </ErrorBoundary>
+
   //       </PoinProvider>
   //     </RecoilRoot>
   //   </WalletProvider>
