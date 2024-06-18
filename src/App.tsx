@@ -23,7 +23,10 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <MobileLayoutMinimal />,
-    children: [{ path: "login", element: <Login /> }],
+    children: [
+      { path: "/*", element: <Login /> },
+      { path: "login", element: <Login /> },
+    ],
   },
   {
     path: "/app/*",
