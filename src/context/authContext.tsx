@@ -22,14 +22,14 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       setSession(session);
     } catch (e: unknown) {
       if (e instanceof AppwriteException) {
-        console.log(e.code);
+        // console.log(e.code);
         setSession(null);
         return;
       }
       console.error("Failed to logout session on this device", e);
     } finally {
       // setIsLoading(false);
-      console.log("done");
+      // console.log("done");
     }
   };
 

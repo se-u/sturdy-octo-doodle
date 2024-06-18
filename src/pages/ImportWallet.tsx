@@ -1,4 +1,4 @@
-import { Button } from "../components/Button";
+import { Button } from "../archive/Button";
 
 export default function ImportWallet() {
   return (

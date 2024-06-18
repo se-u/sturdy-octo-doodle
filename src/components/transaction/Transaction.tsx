@@ -1,7 +1,8 @@
 import { ArrowCircleLeft } from "iconsax-react";
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ReceiveIcon } from "../../components/Image";
+import { ReceiveIcon } from "../../modules/Image";
+import { path } from "../../modules/constant";
 
 interface ITransaction {
   date: string;
@@ -76,18 +77,20 @@ export default function Transaction() {
       },
       {}
     );
-  }, [transactions]);
+  }, []);
 
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <Link to="/app/home">
+        <Link to={path.HOME}>
           <ArrowCircleLeft
             variant="Linear"
             className="text-black font-bold h-10"
           />
         </Link>
-        <h2 className="text-medium font-bold text-black pr-2">Riwayat Transaksi</h2>
+        <h2 className="text-medium font-bold text-black pr-2">
+          Riwayat Transaksi
+        </h2>
       </div>
 
       {Object.keys(groupedTransactions).map((date) => (

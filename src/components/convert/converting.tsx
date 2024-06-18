@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { GopayIcon } from "../../components/Image";
+import { GopayIcon } from "../../modules/Image";
 import { ArrowCircleLeft } from "iconsax-react";
+import { path } from "../../modules/constant";
 
 export default function Converting() {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <Link to="/app/home">
+        <Link to={path.HOME}>
           <ArrowCircleLeft
             variant="Linear"
             className="text-black font-bold h-10"
