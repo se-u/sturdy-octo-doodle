@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { Button } from "../components/Button";
-import { Modal } from "../components/Modal";
+import { Button } from "../archive/Button";
+import { Modal } from "../components/shared/Modal";
 
 export default function ListVolunteer() {
   const [searchQuery, setSearchQuery] = useState("");

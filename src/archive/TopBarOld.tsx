@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { WalletContext } from "../hooks/WalletProvider";
 import { useBalance } from "../hooks/useBalance";
-import { Button } from "./Button";
+import { Button } from "../archive/Button";
 import { Modal } from "./Modal";
 
 function TopBar() {

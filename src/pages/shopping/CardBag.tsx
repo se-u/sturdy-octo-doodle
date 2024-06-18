@@ -1,7 +1,7 @@
 import { ArrowUp, CloseCircle } from "iconsax-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../../components/Button";
+import { Button } from "../../archive/Button";
 import { BagItem } from "../../contracts/Barter";
 
 export default function CardBag(props: BagItem) {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../components/Button";
+import { Button } from "../archive/Button";
 
 const Calculator = () => {
   const [bottleSizes, setBottleSizes] = useState(["", "", ""]);

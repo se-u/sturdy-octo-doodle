@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
-import { Button } from "../components/Button";
-import { Modal } from "../components/Modal";
+import { Button } from "../archive/Button";
+import { Modal } from "../components/shared/Modal";
 import { WalletContext } from "../hooks/WalletProvider";
 import { useBalance } from "../hooks/useBalance";
 import { sendTransfer } from "../utils/wallet";

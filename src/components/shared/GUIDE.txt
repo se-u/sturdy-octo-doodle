@@ -1,0 +1,11 @@
+FOLDER: components/shared
+
+Digunakan untuk menyimpan components yang akan digunakan dimanapun berada seperti 
+<Button/> <Input/> dan lain sebagainya. Jika membuat component wajib menggunakan behaviour
+dari HTML
+
+DON'T:
+<Button text="Submit" ..otherProps></Button>
+
+DO:
+<Button ...otherProps>Submit</Button>

@@ -1,138 +1,34 @@
-import { useEffect } from "react";
 import {
+  Route,
   RouterProvider,
+  Routes,
   createBrowserRouter,
-  useNavigate,
 } from "react-router-dom";
-import AppLayout from "./layouts/MobileLayout.tsx";
 import Calculator from "./pages/Calculator.tsx";
-import History from "./pages/History.tsx";
 import Shop from "./pages/Shopping.tsx";
-import Transaction from "./pages/transaction/transaction.tsx";
+import Transaction from "./components/transaction/Transaction.tsx";
 import Wallet from "./pages/Wallet.tsx";
-// import Home from "./pages/home/HomeOld.tsx";
-import { TestAppWrite } from "./pages/TestAppWrite.tsx";
-import Home from "./pages/home/Home.tsx";
-
-// export default function App() {
-//   const router = createBrowserRouter([
-//     {
-//       path: "/",
-//       element: <RootLayout />,
-//       children: [
-//         {
-//           path: "/",
-//           element: <LandingPages />,
-//         },
-//         {
-//           path: "*",
-//           element: <FourOhFourOhFour />,
-//         },
-//       ],
-//     },
-
-//     {
-//       path: "/app",
-//       element: <AppLayout />,
-//       children: [
-//         {
-//           path: "/app",
-//           element: <Home />,
-//         },
-//         {
-//           path: "/app/wallet",
-//           element: <Wallet />,
-//         },
-//         {
-//           path: "/app/history",
-//           element: <History />,
-//         },
-//         {
-//           path: "/app/wallet/import",
-//           element: <ImportWallet />,
-//         },
-//         {
-//           path: "/app/volunteer",
-//           element: <ModeratUi />,
-//         },
-//         {
-//           path: "/app/list-volunteer",
-//           element: <ListVolunteer />,
-//         },
-//         {
-//           path: "/app/calculator",
-//           element: <Calculator />,
-//         },
-//         {
-//           path: "/app/shop",
-//           element: <Shopping />,
-//         },
-//         {
-//           path: "/app/profile",
-//           element: <MyProfile />,
-//         },
-//       ],
-//     },
-//     {
-//       path: "*",
-//       element: <FourOhFourOhFour />,
-//     },
-//     {
-//       path: "/login",
-//       element: <Login />,
-//     },
-//   ]);
-
-//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//   const [_, setUserWalletState] = useRecoilState(userWallet);
-//   const wallet = useTonWallet();
-//   const client = useTonClient();
-//   useEffect(() => {
-//     if (!wallet) return;
-//     if (!client) return;
-//     const getBalance = async () => {
-//       const balance = await client.getBalance(
-//         Address.parse(wallet.account.address)
-//       );
-//       setUserWalletState((prevState) => {
-//         return { ...prevState, tonBalance: Number(balance) / 1_000_0000_000 };
-//       });
-//     };
-
-//     getBalance();
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [wallet, client]);
-//   return (
-//     <>
-//       <RouterProvider router={router} />
-//     </>
-//   );
-// }
-function TODO() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate("/app/home");
-  });
-  return <>{"Redirect"}</>;
-}
+import Converting from "@components/convert/converting.tsx";
+import SwapPoint from "@components/convert/SwapPoint.tsx";
+import Login from "@components/login/Login.tsx";
+import Setup from "@components/setup/Setup.tsx";
+import UserProfile from "@components/profile/UserProfile.tsx";
+import Home from "@components/home/Home.tsx";
+import {
+  MobileLayout,
+  MobileLayoutMinimal,
+} from "@components/layouts/mobile/MobileLayout.tsx";
 
 const router = createBrowserRouter([
-  { path: "*", element: <TODO /> },
-  { path: "test/", element: <TestAppWrite /> },
+  {
+    path: "*",
+    element: <MobileLayoutMinimal />,
+    children: [{ path: "login", element: <Login /> }],
+  },
   {
     path: "/app/*",
-    element: <AppLayout />,
-    children: [
-      { path: "home", element: <Home /> },
-      { path: "calculator", element: <Calculator /> },
-      { path: "shop", element: <Shop /> },
-      { path: "history", element: <History /> },
-      { path: "transaction", element: <Transaction/> },
-      {
-        path: "wallet/",
-        element: <Wallet />,
-      },
-    ],
+    element: <MobileLayout />,
+    children: [{ path: "*", element: <Dashboard /> }],
   },
 ]);
 
@@ -140,11 +36,18 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 
-// function Root() {
-//   return (
-//     <Routes>
-//       <Route path="*" element={<AppLayout />} />
-//       {/* <Route path="/" element={<Home />} /> */}
-//     </Routes>
-//   );
-// }
+function Dashboard() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="setup" element={<Setup />} />
+      <Route path="profile" element={<UserProfile />} />
+      <Route path="calculator" element={<Calculator />} />
+      <Route path="shop" element={<Shop />} />
+      <Route path="transaction" element={<Transaction />} />
+      <Route path="convert" element={<Converting />} />
+      <Route path="swapPoint" element={<SwapPoint />} />
+      <Route path="wallet/" element={<Wallet />} />
+    </Routes>
+  );
+}

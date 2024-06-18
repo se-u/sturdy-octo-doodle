@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../components/landing_page";
+import { Navbar } from "../landing_page";
 
 const RootLayout = () => {
   return (

@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Button } from "../../components/Button";
+import { Button } from "../../archive/Button";
 import { WalletContext } from "../../hooks/WalletProvider";
 
 export interface bagDetail {
