@@ -1,32 +1,29 @@
-import { startTransition, useEffect, useState } from "react";
+import { startTransition, useState } from "react";
 import { convertCoin } from "../../modules/Image";
 import { account } from "../../lib/appwrite";
 import { ButtonLogin } from "../login/ButtonLogin";
 import { AppwriteException } from "appwrite";
 import { path } from "@modules/constant";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import useSWR from "swr";
+
+const fetcher = () => {
+  return account.get().then((res) => res);
+};
 
 function Setup() {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState({ firstName: "", lastName: "" });
-
-  useEffect(() => {
-    const get = async () => {
-      try {
-        const user = await account.get();
-        if (user.name !== "") {
-          navigate(path.HOME);
-        }
-      } catch (error) {
-        console.log("");
-      }
-    };
-    get();
+  const { data } = useSWR("USER", fetcher, {
+    suspense: true,
   });
-
   const navigate = useNavigate();
+
+  if (data.name !== "") {
+    return <Navigate to={path.HOME} />;
+  }
 
   const handleSave = async () => {
     if (firstName === "") {

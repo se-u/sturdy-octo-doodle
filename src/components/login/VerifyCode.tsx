@@ -39,9 +39,8 @@ export default function VerifyCode({
         setError("Your code is invalid, please check your message");
       }
       startTransition(() => {
-        navigate(path.SETUP);
+        navigate(path.HOME);
       });
-
     } catch (error) {
       console.error(error);
     } finally {

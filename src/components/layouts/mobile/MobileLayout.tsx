@@ -3,28 +3,19 @@ import { path } from "@modules/constant";
 import TopAppBar from "@components/layouts/mobile/TopBar";
 import BottomNav from "@components/layouts/mobile/BottomNav";
 import { AuthService } from "@modules/authService";
-import wrapPromise from "@modules/wrapPromise";
-import { account } from "@lib/appwrite";
-
-function fetchDetail() {
-  const promise = account.get().then((res) => res);
-  return wrapPromise(promise);
-}
-
-const resource = fetchDetail();
 
 function MobileLayout() {
-  const user = resource.read();
   const isAuthenticated = AuthService.isAuthenticated();
   const { pathname } = useLocation();
   if (!isAuthenticated) {
     return <Navigate to={path.LOGIN} />;
   }
+
   return (
     <div className="bg-primary-900 w-screen h-screen font-dmsans">
       <div className="relative bg-white  max-w-sm mx-auto h-screen">
         <div className="overflow-y-scroll h-screen ">
-          <TopAppBar name={user.name} />
+          <TopAppBar />
           <div className="px-3  py-4 mb-24">
             <Outlet />
           </div>
