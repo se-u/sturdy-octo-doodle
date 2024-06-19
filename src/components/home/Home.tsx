@@ -6,7 +6,8 @@ import {
   OvoIcon,
   ReceiveIcon,
   convertCoin,
-} from "../../modules/Image";
+} from "@modules/Image.ts";
+import {path} from "@modules/constant.ts";
 
 export default function Home() {
   return (
@@ -34,32 +35,33 @@ export default function Home() {
       <div className="py-3 mb-4">
         <div className="grid grid-cols-4 gap-3 bg-white ">
           <div className="flex flex-col items-center">
-            <div className="grid bg-green  rounded-xl p-2">
+            <div className="grid bg-green rounded-xl p-2">
               <img src={convertCoin} alt="" className="" />
             </div>
-            <span className="text-xs font-semibold  mt-2">Klora Coin</span>
+            <span className="text-xs font-semibold mt-2">Klora Coin</span>
           </div>
-          <Link to="/app/convert" className="flex flex-col items-center">
-            <div className=" border-black bg-secondary rounded-xl p-2">
+          <Link to={path.GOPAY} className="flex flex-col items-center">
+            <div className="border-black bg-secondary rounded-xl p-2">
               <img src={GopayIcon} alt="tes" className="" />
             </div>
-            <span className="text-xs font-semibold mt-2 ">GoPay</span>
+            <span className="text-xs font-semibold mt-2">GoPay</span>
           </Link>
-          <div className="flex flex-col items-center">
-            <div className=" border-black bg-secondary rounded-xl p-2">
+          <Link to={path.OVO} className="flex flex-col items-center">
+            <div className="border-black bg-secondary rounded-xl p-2">
               <img src={OvoIcon} alt="tes" className="h-12 w-12" />
             </div>
-            <span className="text-xs font-semibold mt-2 ">Ovo</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className=" border-black bg-secondary rounded-xl p-2">
+            <span className="text-xs font-semibold mt-2">Ovo</span>
+          </Link>
+          <Link to={path.DANA} className="flex flex-col items-center">
+            <div className="border-black bg-secondary rounded-xl p-2">
               <img src={DanaIcon} alt="" className="" />
             </div>
-            <span className="text-xs font-semibold  mt-2 ">Dana</span>
-          </div>
+            <span className="text-xs font-semibold mt-2">Dana</span>
+          </Link>
         </div>
       </div>
-      {/* Menu */}
+      {/*Menu End*/}
+
 
       {/* Riwayat Transaksi Start */}
       <div className="bg-green-200 border-2 border-black p-4 mb-4 rounded-3xl">

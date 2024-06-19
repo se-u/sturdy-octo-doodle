@@ -6,6 +6,11 @@ const path = {
   LOGIN: "/login",
   SETUP: "/app/setup",
   VERIFY: "/m/verify",
+  CONVERT: "/app/convert",
+  SWAP_POINT: "/app/swapPoint",
+  GOPAY: "/app/convert/gopay",
+  DANA: "/app/convert/dana",
+  OVO: "/app/convert/ovo",
 };
 
 export { ENDPOINT, PROJECT_ID, path };
