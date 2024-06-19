@@ -4,17 +4,24 @@ import { path } from "../../modules/constant";
 import { ArrowCircleLeft } from "iconsax-react";
 import { Suspense } from "react";
 import { AuthService } from "@modules/authService";
-import wrapPromise from "@modules/wrapPromise";
+// import wrapPromise from "@modules/wrapPromise";
+import useSWR from "swr";
 
-function fetchDetail() {
-  const promise = account.get().then((res) => res);
-  return wrapPromise(promise);
-}
+// function fetchDetail() {
+//   const promise = account.get().then((res) => res);
+//   return wrapPromise(promise);
+// }
 
-const resource = fetchDetail();
-
+// const resource = fetchDetail();
+const fetcher = () => {
+  return account.get().then((res) => res);
+};
 function UserProfile() {
-  const user = resource.read();
+  // const user = resource.read();
+  const { data } = useSWR("USER", fetcher, {
+    suspense: true,
+  });
+  const user = data;
   const navigate = useNavigate();
   const handleLogout = async () => {
     await account.deleteSession("current");
