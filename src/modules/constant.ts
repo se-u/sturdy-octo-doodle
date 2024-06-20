@@ -11,6 +11,7 @@ const path = {
   GOPAY: "/app/convert/gopay",
   DANA: "/app/convert/dana",
   OVO: "/app/convert/ovo",
+  DEPOSIT: "/app/deposit",
 };
 
 export { ENDPOINT, PROJECT_ID, path };

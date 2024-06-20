@@ -5,11 +5,11 @@ import BottomNav from "@components/layouts/mobile/BottomNav";
 import { AuthService } from "@modules/authService";
 
 function MobileLayout() {
-  const isAuthenticated = AuthService.isAuthenticated();
+  // const isAuthenticated = AuthService.isAuthenticated();
   const { pathname } = useLocation();
-  if (!isAuthenticated) {
-    return <Navigate to={path.LOGIN} />;
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to={path.LOGIN} />;
+  // }
 
   return (
     <div className="bg-primary-900 w-screen h-screen font-dmsans">
