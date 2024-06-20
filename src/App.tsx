@@ -13,13 +13,13 @@ import Login from "@components/login/Login.tsx";
 import Setup from "@components/setup/Setup.tsx";
 import UserProfile from "@components/profile/UserProfile.tsx";
 import Home from "@components/home/Home.tsx";
-import Deposit from "@components/deposit/Deposit.tsx";
 import { path } from "@modules/constant";
 import {
   MobileLayout,
   MobileLayoutMinimal,
 } from "@components/layouts/mobile/MobileLayout.tsx";
 import ConvertList from "@components/convert/ConvertList.tsx";
+import Deposit from "@components/deposit/Deposit.tsx";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,7 @@ function Dashboard() {
       <Route path="convert/:type" element={<ConvertList />} />
       <Route path="swapPoint/:type/:amount" element={<SwapPoint />} />
       <Route path="wallet/" element={<Wallet />} />
-      <Route path={path.DEPOSIT} element={<Deposit />} />
+      <Route path={path.DEPOSIT} element={<Deposit/>} />
     </Routes>
   );
 }
