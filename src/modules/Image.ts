@@ -6,7 +6,9 @@ import gopay from "../assets/gopay.svg";
 import receive from "../assets/receive_green.svg";
 import bluerecive from "../assets/bluerecive.svg";
 import qrCode from "../assets/qrcode.jpg";
+import ScanCode from "../assets/volunteer/ScanIcon.svg";
 
+export const ScanIcon = ScanCode;
 
 export const QrCode = qrCode;
 export const BlueReceiveIcon = bluerecive;

@@ -20,6 +20,10 @@ import {
 } from "@components/layouts/mobile/MobileLayout.tsx";
 import ConvertList from "@components/convert/ConvertList.tsx";
 import Deposit from "@components/deposit/Deposit.tsx";
+import VolunteerLayout from "@components/layouts/mobile/VolunteerLayout.tsx";
+import HomeVolunteer from "@components/volunteer/HomeVolunteer.tsx";
+import BottleVerif from "@components/volunteer/BottleVerif.tsx";
+
 
 const router = createBrowserRouter([
   {
@@ -35,10 +39,24 @@ const router = createBrowserRouter([
     element: <MobileLayout />,
     children: [{ path: "*", element: <Dashboard /> }],
   },
+  {
+    path: "/volunteer/*",
+    element: <VolunteerLayout/>,
+    children: [{path: "*", element: <Volunteer/>}]
+  }
 ]);
 
 export default function App() {
   return <RouterProvider router={router} />;
+}
+
+function Volunteer(){
+  return(
+    <Routes>
+        <Route path="/" element={<HomeVolunteer/>}/>
+        <Route path="verif" element={<BottleVerif/>}/>
+    </Routes>
+  );
 }
 
 function Dashboard() {

@@ -12,6 +12,9 @@ const path = {
   DANA: "/app/convert/dana",
   OVO: "/app/convert/ovo",
   DEPOSIT: "deposit",
+  // Volunteer
+  HOME_VOLUNTEER: "/volunteer/",
+
   };
 
 export { ENDPOINT, PROJECT_ID, path };
