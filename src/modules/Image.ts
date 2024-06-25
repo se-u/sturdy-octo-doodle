@@ -5,8 +5,10 @@ import danaPoint from "../assets/dana.svg";
 import gopay from "../assets/gopay.svg";
 import receive from "../assets/receive_green.svg";
 import bluerecive from "../assets/bluerecive.svg";
+import qrCode from "../assets/qrcode.jpg";
 
 
+export const QrCode = qrCode;
 export const BlueReceiveIcon = bluerecive;
 export const ReceiveIcon = receive;
 export const convertCoin = kloCoin;
