@@ -8,9 +8,8 @@ import bluerecive from "../assets/bluerecive.svg";
 import qrCode from "../assets/qrcode.jpg";
 import ScanCode from "../assets/volunteer/ScanIcon.svg";
 
-
-
 export const ScanIcon = ScanCode;
+
 export const QrCode = qrCode;
 export const BlueReceiveIcon = bluerecive;
 export const ReceiveIcon = receive;
