@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { account } from "../../lib/appwrite";
 import { path } from "../../modules/constant";
-import { ArrowCircleLeft } from "iconsax-react";
+import { ArrowLeft, Mobile } from "iconsax-react";
 import { Suspense } from "react";
 import { AuthService } from "@modules/authService";
 // import wrapPromise from "@modules/wrapPromise";
@@ -30,51 +30,36 @@ function UserProfile() {
   };
   return (
     <Suspense fallback={<h1>Loading</h1>}>
-      <div className="flex justify-between items-center mb-4">
-        <Link to={path.HOME}>
-          <ArrowCircleLeft
-            size={36}
-            variant="Linear"
-            className="text-black font-bold"
-          />
-        </Link>
+      <div className="flex items-center gap-4">
+      <Link to={path.HOME}>
+        <ArrowLeft
+          size={36}
+          variant="Linear"
+          className="text-green  font-black"
+        />
+      </Link>
+      <h2 className="font-bold text-2xl text-green">Profile</h2>
       </div>
-      <div className="mb-4 p-4 bg-white border-2 border-black rounded-md">
-        <h2 className="text-3xl font-bold mb-4">User Profile</h2>
-        <div className="mb-4">
-          <label htmlFor="phone" className="block text-lg font-semibold mb-1">
-            Phone:
-          </label>
-          <input
-            type="text"
-            id="phone"
-            value={"+" + formatPhoneNumber(user.phone)}
-            disabled
-            className="w-full p-2 border-2 border-black rounded-md bg-gray-100 text-black"
-          />
+      <div className="h-96 mt-16 flex flex-col justify-between">
+        <div className="flex flex-col justify-center text-center ">
+          <img src="/user_blue.svg" className="h-36" alt="" />
+          <h1 className="font-bold text-2xl text-green mt-8">{user.name}</h1>
+          <div className="flex justify-center items-center font-medium gap-1">
+            <Mobile
+              size={18}
+              variant="Linear"
+              className="text-black font-bold"
+            />
+            <span>{"+" + formatPhoneNumber(user.phone)}</span>
+          </div>
         </div>
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-lg font-semibold mb-1">
-            Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={user.name}
-            disabled
-            className="w-full p-2 border-2 border-black rounded-md bg-gray-100 text-black"
-          />
-        </div>
-        <p className="text-sm text-gray-700 mt-4">
-          Last Accessed : {formatDate(user.accessedAt)}
-        </p>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 w-full text-white px-4 py-2 rounded-lg border-2 border-black hover:bg-red-700 transition-colors"
+        >
+          Log Out
+        </button>
       </div>
-      <button
-        onClick={handleLogout}
-        className="bg-red-500 w-full text-white px-4 py-2 rounded-lg border-2 border-black hover:bg-red-700 transition-colors"
-      >
-        Log Out
-      </button>
     </Suspense>
   );
 }
@@ -102,9 +87,9 @@ function formatPhoneNumber(phoneNumber: string) {
   }
 }
 
-function formatDate(date: string) {
-  const formatDate = new Date(date);
-  return formatDate.toString();
-}
+// function formatDate(date: string) {
+//   const formatDate = new Date(date);
+//   return formatDate.toString();
+// }
 
 export default UserProfile;
